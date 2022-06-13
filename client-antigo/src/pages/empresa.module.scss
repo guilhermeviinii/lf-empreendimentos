@@ -1,0 +1,59 @@
+.overflow{
+    body{
+        overflow-y: hidden;
+    }
+}
+
+.sobreEmpresa {
+    p {
+        font-size: 20px;
+        text-align: justify;
+        img {
+            float: left;
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            margin: 0 2rem 1rem 0;
+        }
+        span {
+            display: block;
+            width: 100%;
+            background: var(--yellow-500);
+            font-weight: bold;
+            color: var(--white);
+            padding: 1rem;
+            margin: 3rem 0;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        text-align: center;
+        background: var(--yellow-500);
+        color: white  !important;
+        padding: 1.3rem;
+        border-radius: 0.5rem;
+        display: block;
+        width: 100%;
+        max-width: 240px;
+        font-size: 0.8rem;
+        line-break: unset;
+        margin: 2rem auto;
+        word-wrap: normal;
+        transition: filter 0.2s;
+        &:hover{
+            filter: brightness(0.8);
+            
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .sobreEmpresa {
+        img {
+            display: block;
+            float: unset !important;
+            margin: 0 auto !important;
+        }
+    }
+}

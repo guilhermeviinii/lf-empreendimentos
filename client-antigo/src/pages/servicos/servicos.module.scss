@@ -1,0 +1,110 @@
+.cardsServicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 20px;
+  margin: 4rem auto;
+  a {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    position: relative;
+    text-decoration: none;
+    &::after {
+      content: "";
+
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--gray-900);
+      opacity: 0.9;
+    }
+    &:hover::after {
+      background: #121314;
+      opacity: 0.3;
+      transition: all 0.2s;
+    }
+    &:hover {
+      div {
+        color: #1c2d3f;
+        z-index: 5;
+        position: absolute;
+        width: unset;
+        height: auto;
+        top: unset;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        bottom: 9px;
+        background: #f8f5f3;
+        opacity: 0.8;
+
+        transition: all 0.2s;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    div {
+      p {
+        margin: 0 24px;
+        strong {
+          margin-left: 8px;
+          font-size: inherit;
+          font-weight: bold;
+          &::after {
+            content: unset;
+          }
+        }
+      }
+      color: var(--white);
+      z-index: 5;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 1;
+      strong {
+        position: relative;
+        font-size: 1.6rem;
+        &::after {
+          display: block;
+          margin: 1rem 0;
+          content: "";
+          height: 3px;
+          width: 100%;
+          background: var(--yellow-500);
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .cardsServicos {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsServicos {
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+  }
+}

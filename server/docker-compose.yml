@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: 'db'
+    ports:
+      - '5434:5432'
+    environment:
+      - POSTGRES_DB=lf_engenharia
+      - POSTGRES_PASSWORD=test

@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gray-900: #1c2d3f;
+  --gray-500: #898989;
+
+  --yellow-500: #baa152;
+  --oragen-700: #c8770d;
+
+  --green-700: #25d366;
+
+  --white: #ffffff;
+
+  --black-300: #1b1d21;
+}
+
+body {
+  background: var(--white);
+  color: var(--black-300);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font: 400 1rem "Raleway", sans-serif;
+}
+.container {
+  width: 90%;
+  max-width: 1090px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.slick-prev::before {
+  color: #121415;
+}
+.slick-next::before {
+  color: #121415;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

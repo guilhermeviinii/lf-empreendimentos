@@ -1,0 +1,50 @@
+.header {
+    position: relative;
+    height: 321px;
+    background: var(--white);
+
+    img {
+        width: 100%;
+        height: 321px;
+    }
+    div {
+        position: absolute;
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+            font-weight: bold;
+            color: var(--white);
+            font-size: 3.4rem;
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '';
+                height: 3px;
+                width: 100%;
+                background: var(--yellow-500);
+                bottom: 0 ;
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+    &::after {
+        content: "";
+
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--gray-900);
+        filter: opacity(0.9);
+    }
+}

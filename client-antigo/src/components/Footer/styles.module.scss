@@ -1,0 +1,113 @@
+.container {
+    width: 90%;
+    max-width: 1090px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer {
+    background: var(--gray-900);
+    padding: 2rem 0;
+    color: var(--white);
+    h1 {
+        font-weight: bold;
+        margin: 0 0 2rem;
+        text-align: start;
+        &::after {
+            display: block;
+            margin: 1rem 0;
+            margin-right: auto;
+            content: "";
+            height: 3px;
+            width: 150px;
+            background: var(--yellow-500);
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+    .contact {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        div {
+            svg {
+                margin-right: 10px;
+                & + svg {
+                    margin-left: 10px !important;
+                }
+            }
+        }
+    }
+    .information {
+    }
+    form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 20px;
+        gap: 12px;
+
+        input,
+        textarea {
+            padding: 1rem 2rem;
+            height: 2.5rem;
+            border-radius: 0.25rem;
+        }
+        textarea {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            height: 10rem;
+        }
+        button {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            margin-left: auto;
+            padding: 0.7rem;
+            width: 100%;
+            max-width: 200px;
+            background: var(--yellow-500);
+            border: none;
+            color: var(--gray-900);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 1rem;
+            transition: all 0.2s;
+            &:hover {
+                color: var(--white);
+                cursor: pointer;
+                filter: brightness(0.9);
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .contact {
+            flex-direction: column;
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 2rem;
+            }
+        }
+    }
+    .whatsapp {
+        text-decoration: none;
+        &:hover {
+            color: unset;
+        }
+        position: relative;
+        svg {
+            position: fixed;
+            bottom: 0;
+            margin-bottom: 1rem;
+            z-index: 11;
+            background: #25d366;
+            border-radius: 50%;
+        }
+    }
+}
+
+.success {
+   background: #d4edda;
+   color: #000;
+}
