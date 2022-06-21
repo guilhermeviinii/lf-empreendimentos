@@ -24,9 +24,12 @@ export default function Servico() {
 
   useEffect(() => {
     async function loadServicos() {
-      const { data } = await api.get("servicos");
-      setServicos(data);
-      console.log(data);
+      try {
+        const { data } = await api.get("servicos");
+        return setServicos(data);
+      } catch (error) {
+        return setServicos([]);
+      }
     }
     loadServicos();
   }, []);
@@ -39,7 +42,7 @@ export default function Servico() {
       <HeaderSecondary title="SERVIÇOS" />
       <div className="container">
         <div className={styles.cardsServicos}>
-          {servicos.map((servico) => (
+          {servicos ? servicos.map((servico) => (
             <Link key={servico.slug} href={`/servicos/${servico.slug}`}>
               <a>
                 <img
@@ -50,20 +53,20 @@ export default function Servico() {
                 <div>
                   <strong>{servico.titulo}</strong>
                   <p>
-                    {servico.descricao.slice(0, 140)+ '...'}
+                    {servico.descricao.slice(0, 140) + '...'}
                     <strong>continuar lendo!</strong>
                   </p>
                 </div>
               </a>
             </Link>
-          ))}
+          )): (
+            <div>
+              <h1>Não foi possível encontrar nenhum serviço no momento...</h1>
+            </div>
+          )}
         </div>
       </div>
       <Map />
     </>
   );
-}
-
-function useRouter() {
-  throw new Error("Function not implemented.");
 }

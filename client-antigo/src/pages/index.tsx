@@ -187,10 +187,22 @@ export default function Home({ services }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get("servicos");
-  const services = data;
-  return {
-    props: { services },
-    revalidate: 60 * 3,
-  };
+  try {
+    const [services] = await Promise.all([api.get("servicos")]);
+
+    return {
+      props: {
+        services
+      },
+      revalidate: 60 * 3,
+    };
+
+  } catch (error) {
+    return {
+      props: {
+        services: []
+      },
+      revalidate: 60 * 3,
+    };
+  }
 };

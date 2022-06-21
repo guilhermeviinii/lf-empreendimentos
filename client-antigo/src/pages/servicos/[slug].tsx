@@ -92,9 +92,23 @@ export default function ProducaoDeProjeto({ service }: ProducaoProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const [service] = await getServicesBySlug(ctx.params.slug);
+  try {
+    const [service] = await Promise.all([getServicesBySlug(ctx.params.slug)]);
 
-  return {
-    props: { service },
-  };
+    return {
+      props: {
+        service
+      },
+    };
+
+  } catch (error) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+      props: { service: {} },
+    };
+  }
+
 };
